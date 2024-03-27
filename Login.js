@@ -130,8 +130,24 @@ const Login = () => {
             </View>
 
             {/* Forgot Password link */}
-            <TouchableOpacity onPress={handleForgotPassword}>
-                <Text style={{ color: 'red', position: 'absolute', left: 50, top: 48 }}>Forgot Password</Text>
+            <TouchableOpacity onPress={handleForgotPassword} style={{
+                top: 66,
+                width: 130,
+                height: 20,
+                //backgroundColor: 'black',
+                alignItems: 'center',
+                left: 90
+            }}>
+                <Text style={{
+                    position: 'absolute',
+                    fontFamily: 'NunitoRegular',
+                    fontWeight: '500',
+                    color: 'red',
+                    fontSize: 14,
+                    left: 20,
+                }}>
+                    Forgot Password
+                </Text>
             </TouchableOpacity>
 
             {/* Login button fo going to main page */}
@@ -208,8 +224,22 @@ const Login = () => {
                 }}
             />
             {/* paid games */}
-            <TouchableOpacity onPress={handleSignup}>
-                <Text style={{ color: 'red', top: 260, fontSize: 16 }}>New user? Sign up</Text>
+            <TouchableOpacity onPress={handleSignup} style={{
+                top: 265,
+                width: 150,
+                height: 30,
+                alignItems: 'center',
+            }}>
+                <Text style={{
+                    position: 'absolute',
+                    fontFamily: 'NunitoRegular',
+                    fontWeight: '500',
+                    color: 'red',
+                    fontSize: 16,
+                    left: 10,
+                }}>
+                    New user? Sign up
+                </Text>
             </TouchableOpacity>
         </View>
     );

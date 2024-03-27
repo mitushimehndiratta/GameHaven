@@ -5,7 +5,7 @@ import { useNavigation } from '@react-navigation/native';
 import ImageButton from './ImageButton.js';
 import { Ionicons } from '@expo/vector-icons';
 
-const BuyScreen = () => {
+const PlayScreen = () => {
     const [fontLoaded, setFontLoaded] = useState(false);
     const [heartColor, setHeartColor] = useState('grey'); // State for heart icon color
     const navigation = useNavigation();
@@ -26,9 +26,10 @@ const BuyScreen = () => {
         return null;
     }
 
-    const handleProfile = () => {
-        navigation.navigate('Profile');
+    const handleSignup = () => {
+        navigation.navigate('Main');
     };
+
     const handleHeartPress = () => {
         const newHeartColor = heartColor === 'grey' ? 'red' : 'grey';
         setHeartColor(newHeartColor);
@@ -43,7 +44,9 @@ const BuyScreen = () => {
     const handleCart = () => {
         navigation.navigate('Cart');
     };
-
+    const handleProfile = () => {
+        navigation.navigate('Profile');
+    };
 
     return (
         <View style={{
@@ -161,13 +164,13 @@ const BuyScreen = () => {
                 alignItems: 'center',
 
             }}></View>
-            <TouchableOpacity onPress={handleCart} style={{
+            <TouchableOpacity onPress={handleSignup} style={{
                 position: 'absolute',
                 cursor: 'pointer',
                 //left: 50,
-                top: 490,
+                top: 510,
                 width: 270,
-                height: 40,
+                height: 60,
                 fontWeight: 500,
                 backgroundColor: 'red',
                 borderColor: '#1d1d1f',
@@ -182,13 +185,13 @@ const BuyScreen = () => {
                     fontFamily: 'NunitoRegular',
                     fontWeight: '700',
                     fontSize: 18,
-                    left: 100,
+                    left: 90,
                     color: 'white',
                 }}>
-                    Buy Now
+                    Download
                 </Text>
             </TouchableOpacity>
-            <TouchableOpacity onPress={handleCart} style={{
+            {/* <TouchableOpacity onPress={handleSignup} style={{
                 position: 'absolute',
                 cursor: 'pointer',
                 //left: 50,
@@ -214,7 +217,7 @@ const BuyScreen = () => {
                 }}>
                     Add To Cart
                 </Text>
-            </TouchableOpacity>
+            </TouchableOpacity> */}
             <Text style={{
                 position: 'absolute',
                 color: 'black',
@@ -226,7 +229,7 @@ const BuyScreen = () => {
                 top: 435,
             }}>
                 Price:{'\n'}
-                $5.00
+                FREE
             </Text>
             <View style={{
                 position: 'absolute',
@@ -312,4 +315,4 @@ const BuyScreen = () => {
     );
 }
 
-export default BuyScreen;
+export default PlayScreen;

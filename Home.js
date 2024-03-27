@@ -1,6 +1,6 @@
 import { registerRootComponent } from 'expo';
 import React, { useState, useEffect } from 'react';
-import { View, Image, Text, TouchableOpacity } from 'react-native';
+import { View, Image, Text, TouchableOpacity, Dimensions } from 'react-native';
 import * as Font from 'expo-font';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
@@ -8,7 +8,11 @@ import LoginScreen from './Login.js';
 import ForgotPasswordScreen from './ForgotPassword';
 import MainScreen from './Main';
 import SignupScreen from './Signup';
-import BuyScreen from './Signup';
+import BuyScreen from './Buy';
+import PlayScreen from './Play';
+import FindScreen from './Find';
+import CartScreen from './Cart';
+import ProfileScreen from './Profile';
 
 const Stack = createNativeStackNavigator();
 
@@ -40,27 +44,44 @@ const Home = () => {
                 <Stack.Screen name="Main" component={MainScreen} />
                 <Stack.Screen name="Signup" component={SignupScreen} />
                 <Stack.Screen name="Buy" component={BuyScreen} />
+                <Stack.Screen name="Play" component={PlayScreen} />
+                <Stack.Screen name="Find" component={FindScreen} />
+                <Stack.Screen name="Cart" component={CartScreen} />
+                <Stack.Screen name="Profile" component={ProfileScreen} />
             </Stack.Navigator>
         </NavigationContainer>
     );
 };
+// const { width, height } = Dimensions.get('window');
+// const baseFontSize = 40; // Set your base font size (in pixels)
+const calculateFontSize = (percentage) => {
+    const { width: screenWidth, height: screenHeight } = Dimensions.get('window');
 
+    // Assuming some logic to derive base font size from screen dimensions
+    const baseFontSize = Math.floor(Math.min(screenWidth, screenHeight) * 0.05); // Example logic
+    // console.log(screenWidth);
+    // console.log(screenHeight);
+    // Calculate the font size based on percentage and base font size
+    return (percentage) * baseFontSize;
+};
 const HomeScreen = ({ navigation }) => {
     const handleGetStarted = () => {
         navigation.navigate('Login');
     };
-
+    const fontSize = calculateFontSize(1);
+    // Calculate font size based on screen width
+    //const fontSize = 1 * 0.15; // Adjust the scaling factor (0.05) as needed
     return (
         <View style={{
             flex: 1,
             alignItems: 'center',
-            justifyContent: 'center',
+            //justifyContent: 'center',
         }}>
             <View style={{
-                position: 'absolute',
-                top: 25,
-                left: 18,
-                width: 327,
+                marginTop: '1%',
+                marginLeft: 'auto',
+                marginRight: 'auto',
+                width: '90%',
                 height: 2,
                 backgroundColor: '#c2c2c2',
                 borderRadius: 2,
@@ -70,20 +91,21 @@ const HomeScreen = ({ navigation }) => {
             <Text style={{
                 position: 'absolute',
                 color: '#1d1d1f',
-                fontSize: 40,
+                fontSize: { fontSize },
                 fontFamily: 'NunitoRegular',
                 fontWeight: '700',
-                lineHeight: 52,
+                //lineHeight: 52,
                 textAlign: 'center',
-                top: 43,
+                marginTop: '3%'
             }}>
                 GameHaven
             </Text>
+
             <View style={{
-                position: 'absolute',
-                top: 113,
-                left: 18,
-                width: 327,
+                marginTop: '10%',
+                marginLeft: 'auto',
+                marginRight: 'auto',
+                width: '90%',
                 height: 2,
                 backgroundColor: '#c2c2c2',
                 borderRadius: 2,
